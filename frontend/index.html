@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitDB</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#" onclick="goHome()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      GitDB
+    </a>
+    <div class="nav-links">
+      <button class="nav-btn" onclick="goHome()">Repositories</button>
+      <button class="nav-btn" onclick="showView('users')">Users</button>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-new" onclick="openModal('modal-new-repo')">
+        <span>+</span> New Repository
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ TOAST ════════════════════════════════════════ -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- ══ MAIN ═════════════════════════════════════════ -->
+<main id="app"></main>
+
+<!-- ══════════════════════════════════════════════════
+     MODALS
+═══════════════════════════════════════════════════ -->
+
+<!-- New Repo Modal -->
+<div class="modal-backdrop hidden" id="modal-new-repo">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Create a new repository</span>
+      <button class="modal-close" onclick="closeModal('modal-new-repo')">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Owner</label>
+      <select class="input" id="new-repo-owner" style="width:100%;margin-bottom:12px"></select>
+      <label class="field-label">Repository name</label>
+      <input class="input" id="new-repo-name" placeholder="e.g. my-project" style="width:100%;margin-bottom:12px" />
+      <label class="field-label">Description <span style="color:var(--muted)">(optional)</span></label>
+      <input class="input" id="new-repo-desc" placeholder="Short description" style="width:100%;margin-bottom:20px" />
+      <button class="btn-primary" style="width:100%" onclick="submitNewRepo()">Create repository</button>
+    </div>
+  </div>
+</div>
+
+<!-- New User Modal -->
+<div class="modal-backdrop hidden" id="modal-new-user">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Create new user</span>
+      <button class="modal-close" onclick="closeModal('modal-new-user')">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Username</label>
+      <input class="input" id="new-user-name" placeholder="johndoe" style="width:100%;margin-bottom:12px" />
+      <label class="field-label">Email</label>
+      <input class="input" id="new-user-email" placeholder="john@example.com" style="width:100%;margin-bottom:20px" />
+      <button class="btn-primary" style="width:100%" onclick="submitNewUser()">Create user</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Commit Modal -->
+<div class="modal-backdrop hidden" id="modal-commit">
+  <div class="modal modal-wide">
+    <div class="modal-header">
+      <span>Create a commit</span>
+      <button class="modal-close" onclick="closeModal('modal-commit')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="commit-form-grid">
+        <div>
+          <label class="field-label">Author</label>
+          <select class="input" id="cm-author" style="width:100%"></select>
+        </div>
+        <div>
+          <label class="field-label">Branch</label>
+          <select class="input" id="cm-branch" style="width:100%"></select>
+        </div>
+      </div>
+      <label class="field-label" style="margin-top:12px">Commit message</label>
+      <input class="input" id="cm-message" placeholder="Describe your changes..." style="width:100%;margin-bottom:16px" />
+      <div class="field-label" style="margin-bottom:8px">Files</div>
+      <div id="cm-files"></div>
+      <button class="btn-outline" onclick="addCommitFile()" style="margin-top:8px">+ Add file</button>
+      <button class="btn-primary" onclick="submitCommit()" style="margin-left:8px;margin-top:8px">Commit changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Branch Modal -->
+<div class="modal-backdrop hidden" id="modal-branch">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Create branch</span>
+      <button class="modal-close" onclick="closeModal('modal-branch')">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Branch name</label>
+      <input class="input" id="new-branch-name" placeholder="feature/my-feature" style="width:100%;margin-bottom:12px" />
+      <label class="field-label">Fork from</label>
+      <input class="input" id="new-branch-from" value="main" style="width:100%;margin-bottom:20px" />
+      <button class="btn-primary" style="width:100%" onclick="submitNewBranch()">Create branch</button>
+    </div>
+  </div>
+</div>
+
+<!-- New Tag Modal -->
+<div class="modal-backdrop hidden" id="modal-tag">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Create tag</span>
+      <button class="modal-close" onclick="closeModal('modal-tag')">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Tag name</label>
+      <input class="input" id="new-tag-name" placeholder="v1.0.0" style="width:100%;margin-bottom:12px" />
+      <label class="field-label">Tagger</label>
+      <select class="input" id="new-tag-user" style="width:100%;margin-bottom:12px"></select>
+      <label class="field-label">Message <span style="color:var(--muted)">(optional)</span></label>
+      <input class="input" id="new-tag-msg" placeholder="Release notes..." style="width:100%;margin-bottom:20px" />
+      <button class="btn-primary" style="width:100%" onclick="submitNewTag()">Create tag</button>
+    </div>
+  </div>
+</div>
+
+<!-- Merge Modal -->
+<div class="modal-backdrop hidden" id="modal-merge">
+  <div class="modal">
+    <div class="modal-header">
+      <span>Merge branch</span>
+      <button class="modal-close" onclick="closeModal('modal-merge')">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Source branch (merge from)</label>
+      <input class="input" id="merge-src" style="width:100%;margin-bottom:12px" />
+      <label class="field-label">Target branch (merge into)</label>
+      <input class="input" id="merge-tgt" value="main" style="width:100%;margin-bottom:12px" />
+      <label class="field-label">Merged by</label>
+      <select class="input" id="merge-user" style="width:100%;margin-bottom:20px"></select>
+      <button class="btn-primary" style="width:100%" onclick="submitMerge()">Merge</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
