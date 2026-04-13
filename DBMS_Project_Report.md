@@ -90,19 +90,18 @@ erDiagram
 ![alt text](image-5.png)
 ![alt text](image-6.png)
 ![alt text](image-7.png)
-7. **Figure 6**: The Commit 
+7. **Figure 6**: The Commit
 ![alt text](image-8.png)
-8. **Figure 7**: Branches 
+![alt text](image-12.png)
+9. **Figure 7**: Branches 
 ![alt text](image-9.png)
 ![alt text](image-10.png)
 ![alt text](image-11.png)
-9. **Figure 9**: Commit
-![alt text](image-12.png)
 10. **Figure 10**:Commit Difference
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/62c965d7-3337-44e6-b554-1d5b8cb87c4e" />
-7. **Figure 7**:The Merge
+11. **Figure 11**:The Merge
 ![alt text](image-13.png)
-8. **Figure 8**:Merged Branch
+12. **Figure 12**:Merged Branch
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a8f6647-60c2-433b-bdd3-627b24ba994e" />
 
 
