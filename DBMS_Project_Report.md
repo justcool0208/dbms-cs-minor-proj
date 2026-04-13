@@ -72,26 +72,35 @@ erDiagram
     MERGE_LOGS }o--|| BRANCHES : target
     MERGE_LOGS }o--|| COMMITS : result
 ```
-![alt text](image.png)
+![alt text](DMBS.png)
 
 
 ## 6. Screenshots of the DBMS Application
 
 
+
+
 1. **Figure 1**: User Creation
-[alt text](image-1.png)
+![alt text](image-1.png)
 2. **Figure 2**: List of active users
 ![alt text](image-2.png)
-3. **Figure 3**: Repository Creation[alt text](image-2.png)
+3. **Figure 3**: Repository Creation
+![alt text](image-2.png)
 ![alt text](image-3.png)
-4. **Figure 4**: List of Repositories
+5. **Figure 4**: List of Repositories
 ![alt text](image-4.png)
-5. **Figure 5**: Internals of a repository
+6. **Figure 5**: Internals of a repository
 ![alt text](image-5.png)
 ![alt text](image-6.png)
 ![alt text](image-7.png)
-6. **Figure 6**: The Commit 
+7. **Figure 6**: The Commit 
 ![alt text](image-8.png)
+8. **Figure 7**: Branches 
 ![alt text](image-9.png)
 ![alt text](image-10.png)
+
 ![alt text](image-11.png)
+6. **Figure 6**:Commit Difference
+6. **Figure 6**:![alt text](image-12.png)
+7. **Figure 7**:The Merge
+![alt text](image-13.png)
