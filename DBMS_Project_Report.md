@@ -77,9 +77,6 @@ erDiagram
 
 ## 6. Screenshots of the DBMS Application
 
-
-
-
 1. **Figure 1**: User Creation
 ![alt text](image-1.png)
 2. **Figure 2**: List of active users
@@ -98,9 +95,15 @@ erDiagram
 8. **Figure 7**: Branches 
 ![alt text](image-9.png)
 ![alt text](image-10.png)
-
 ![alt text](image-11.png)
-6. **Figure 6**:Commit Difference
-6. **Figure 6**:![alt text](image-12.png)
+9. **Figure 9**: Commit
+![alt text](image-12.png)
+10. **Figure 10**:Commit Difference
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/62c965d7-3337-44e6-b554-1d5b8cb87c4e" />
 7. **Figure 7**:The Merge
 ![alt text](image-13.png)
+8. **Figure 8**:Merged Branch
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a8f6647-60c2-433b-bdd3-627b24ba994e" />
+
+
+
