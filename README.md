@@ -75,34 +75,3 @@ erDiagram
 ![alt text](DMBS.png)
 
 
-## 6. Screenshots of the DBMS Application
-
-1. **Figure 1**: User Creation
-![alt text](image-1.png)
-2. **Figure 2**: List of active users
-![alt text](image-2.png)
-3. **Figure 3**: Repository Creation
-![alt text](image-2.png)
-![alt text](image-3.png)
-5. **Figure 4**: List of Repositories
-![alt text](image-4.png)
-6. **Figure 5**: Internals of a repository
-![alt text](image-5.png)
-![alt text](image-6.png)
-![alt text](image-7.png)
-7. **Figure 6**: The Commit
-![alt text](image-8.png)
-![alt text](image-12.png)
-9. **Figure 7**: Branches 
-![alt text](image-9.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
-10. **Figure 10**:Commit Difference
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/62c965d7-3337-44e6-b554-1d5b8cb87c4e" />
-11. **Figure 11**:The Merge
-![alt text](image-13.png)
-12. **Figure 12**:Merged Branch
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0a8f6647-60c2-433b-bdd3-627b24ba994e" />
-
-
-
